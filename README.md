@@ -1,6 +1,6 @@
 # RustDesk Server List
 
-A minimal single-page application built with React + Vite to display a list of self-hosted RustDesk relay servers. Handy when you and your friends run multiple servers across different locations and need a central place to check IPs and keys.
+A minimal single-page application built with React + Vite to display a list of self-hosted RustDesk servers. Handy when you and your friends run multiple servers across different locations and need a central place to check IPs and keys.
 
 ## Why?
 
