@@ -1,0 +1,20 @@
+name: Deploy to 'Github Pages'
+on:
+    workflow_call:
+
+jobs:
+    deploy_to_github_pages:
+        runs-on: [ubuntu-latest]
+        name: Deploy to 'Github pages'
+        needs: build_and_upload_artifact
+        permissions:
+            pages: write
+            id-token: write
+        environment:
+            name: github-pages
+            url: ${{ steps.deploy_pages.outputs.page_url }}
+        steps:
+            - uses: actions/deploy-pages@v4
+              id: deploy_pages
+
+            - run: echo ${{ steps.deploy_pages.outputs.page_url }}
