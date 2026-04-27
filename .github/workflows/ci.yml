@@ -24,3 +24,6 @@ jobs:
     deploy_to_github_pages:
         uses: ./.github/workflows/deploy_to_github_pages.yml
         needs: build_and_upload_artifact
+        permissions:
+            pages: write
+            id-token: write
