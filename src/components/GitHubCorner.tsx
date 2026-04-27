@@ -8,7 +8,7 @@ export function GitHubCorner() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="View source on GitHub"
-            className="fixed top-4 right-4 z-50 flex items-center justify-center w-11 h-11 rounded transition-all duration-150"
+            className="absolute top-4 right-4 z-50 flex items-center justify-center w-11 h-11 rounded transition-all duration-150"
             style={{
                 background: "white",
                 border: "3px solid var(--ink)",
