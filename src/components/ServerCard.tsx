@@ -45,7 +45,7 @@ function IconPin() {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="w-3.5 h-3.5 flex-shrink-0"
+            className="w-3.5 h-3.5 shrink-0"
         >
             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
             <circle cx="12" cy="10" r="3" />
@@ -90,7 +90,7 @@ function CopyBtn({ text, onCopy }: CopyBtnProps) {
         <button
             onClick={handleClick}
             title="Copy"
-            className="w-7 h-7 rounded flex items-center justify-center flex-shrink-0 transition-all duration-100 cursor-pointer"
+            className="w-7 h-7 rounded flex items-center justify-center shrink-0 transition-all duration-100 cursor-pointer"
             style={{
                 border: "2px solid var(--ink)",
                 background: copied ? "var(--lime)" : "white",
@@ -140,7 +140,7 @@ function FieldRow({ label, value, truncate = false, copyable = false, onCopy }: 
             className="flex items-center justify-between px-3 py-2 rounded gap-2"
             style={{ background: "rgba(255,255,255,0.5)", border: "2px solid rgba(0,0,0,0.08)" }}
         >
-            <span className="font-hand text-base font-bold flex-shrink-0" style={{ color: "var(--ink-soft)" }}>
+            <span className="font-hand text-base font-bold shrink-0" style={{ color: "var(--ink-soft)" }}>
                 {label}
             </span>
             <span
@@ -195,7 +195,7 @@ export function ServerCard({ server, index, colorIndex, onCopy }: ServerCardProp
             {showTape && (
                 <>
                     <div
-                        className="absolute top-[-6px] left-[15px] w-20 h-6 z-10 pointer-events-none rounded-sm"
+                        className="absolute -top-1.5 left-3.75 w-20 h-6 z-10 pointer-events-none rounded-sm"
                         style={{
                             background: "rgba(255,233,100,0.6)",
                             border: "1px solid rgba(0,0,0,0.1)",
@@ -203,7 +203,7 @@ export function ServerCard({ server, index, colorIndex, onCopy }: ServerCardProp
                         }}
                     />
                     <div
-                        className="absolute top-[-6px] right-[15px] w-20 h-6 z-10 pointer-events-none rounded-sm"
+                        className="absolute -top-1.5 right-3.75 w-20 h-6 z-10 pointer-events-none rounded-sm"
                         style={{
                             background: "rgba(255,233,100,0.6)",
                             border: "1px solid rgba(0,0,0,0.1)",
@@ -235,7 +235,7 @@ export function ServerCard({ server, index, colorIndex, onCopy }: ServerCardProp
 
                     {/* Status badge */}
                     <div
-                        className="font-tag text-xs px-2.5 py-1 rounded flex-shrink-0 whitespace-nowrap uppercase tracking-wider"
+                        className="font-tag text-xs px-2.5 py-1 rounded shrink-0 whitespace-nowrap uppercase tracking-wider"
                         style={{
                             ...STATUS_STYLES[server.status],
                             border: "2px solid var(--ink)",
