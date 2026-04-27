@@ -2,7 +2,7 @@
     "name": "rustdesk_servers",
     "repository": {
         "type": "git",
-        "url": "https://github.com/romeosarkar10x-util/rustdesk_servers"
+        "url": "https://github.com/romeosarkar10x-util/rustdesk-servers"
     },
     "private": true,
     "version": "0.0.0",
