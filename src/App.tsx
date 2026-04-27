@@ -2,6 +2,7 @@ import { useState, useCallback, useRef } from "react";
 import { SERVERS } from "./data/servers";
 import type { FilterValue } from "./components/FilterBar";
 import { GraffitiDrips, GraffitiSplatters, GraffitiStickers } from "./components/GraffitiBackground";
+import { GitHubCorner } from "./components/GitHubCorner";
 import { Header } from "./components/Header";
 import { StatsStrip } from "./components/StatsStrip";
 import { SearchBar } from "./components/SearchBar";
@@ -44,6 +45,7 @@ function App() {
             <GraffitiDrips />
             <GraffitiSplatters />
             <GraffitiStickers />
+            <GitHubCorner />
 
             {/* ── Main content ── */}
             <main className="relative z-10 w-full max-w-5xl mx-auto px-6">
