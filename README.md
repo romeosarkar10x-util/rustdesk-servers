@@ -1,75 +1,83 @@
-# React + TypeScript + Vite
+# RustDesk Server List
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A minimal single-page application built with React + Vite to display a list of self-hosted RustDesk relay servers. Handy when you and your friends run multiple servers across different locations and need a central place to check IPs and keys.
 
-Currently, two official plugins are available:
+## Why?
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+When you have 4–5 self-hosted RustDesk servers spread across different machines and networks — some turned on, some off depending on need — it gets annoying to remember which server is where and what its public key is. This page solves that by putting everything in one place.
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+- **React** — UI
+- **Vite** — Build tooling & dev server
+- **Static deployment** — No backend needed; deploy to GitHub Pages, Vercel, Netlify, or anywhere that serves static files
 
-Note: This will impact Vite dev & build performances.
+## Getting Started
 
-## Expanding the ESLint configuration
+### Prerequisites
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Node.js (v18+)
+- npm or yarn
 
-```js
-export default defineConfig([
-    globalIgnores(["dist"]),
-    {
-        files: ["**/*.{ts,tsx}"],
-        extends: [
-            // Other configs...
+### Setup
 
-            // Remove tseslint.configs.recommended and replace with this
-            tseslint.configs.recommendedTypeChecked,
-            // Alternatively, use this for stricter rules
-            tseslint.configs.strictTypeChecked,
-            // Optionally, add this for stylistic rules
-            tseslint.configs.stylisticTypeChecked,
+```bash
+# Clone the repo
+git clone https://github.com/<your-username>/rustdesk-server-list.git
+cd rustdesk-server-list
 
-            // Other configs...
-        ],
-        languageOptions: {
-            parserOptions: {
-                project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-                tsconfigRootDir: import.meta.dirname,
-            },
-            // other options...
-        },
-    },
-]);
+# Install dependencies
+npm install
+
+# Start dev server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The app will be available at `http://localhost:5173`.
 
-```js
-// eslint.config.js
-import reactX from "eslint-plugin-react-x";
-import reactDom from "eslint-plugin-react-dom";
+### Build for Production
 
-export default defineConfig([
-    globalIgnores(["dist"]),
-    {
-        files: ["**/*.{ts,tsx}"],
-        extends: [
-            // Other configs...
-            // Enable lint rules for React
-            reactX.configs["recommended-typescript"],
-            // Enable lint rules for React DOM
-            reactDom.configs.recommended,
-        ],
-        languageOptions: {
-            parserOptions: {
-                project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-                tsconfigRootDir: import.meta.dirname,
-            },
-            // other options...
-        },
-    },
-]);
+```bash
+npm run build
 ```
+
+Output goes to the `dist/` folder — deploy it wherever you like.
+
+## Configuration
+
+Server details are defined in a config file (e.g. `src/servers.json`). Example:
+
+```json
+[
+    {
+        "name": "Server Alpha",
+        "location": "Bangalore, IN",
+        "ip": "203.0.113.10",
+        "port": 21117,
+        "key": "your-public-key-here",
+        "status": "active"
+    },
+    {
+        "name": "Server Beta",
+        "location": "Frankfurt, DE",
+        "ip": "198.51.100.20",
+        "port": 21117,
+        "key": "another-public-key-here",
+        "status": "inactive"
+    }
+]
+```
+
+To update the server list, edit this file and redeploy.
+
+## Deployment
+
+Since this is a fully static site, you can deploy it with any of these:
+
+- **GitHub Pages** — push to `gh-pages` branch or use GitHub Actions
+- **Vercel / Netlify** — connect the repo and it auto-deploys on push
+- **Any static host** — just upload the `dist/` folder
+
+## License
+
+MIT
