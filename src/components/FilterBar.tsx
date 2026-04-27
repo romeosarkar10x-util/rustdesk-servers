@@ -56,7 +56,9 @@ export function FilterBar({ active, onChange }: FilterBarProps) {
                         }}
                         onMouseUp={(e) => {
                             e.currentTarget.style.transform = "";
-                            e.currentTarget.style.boxShadow = isActive ? "4px 4px 0 var(--ink)" : "3px 3px 0 var(--ink)";
+                            e.currentTarget.style.boxShadow = isActive
+                                ? "4px 4px 0 var(--ink)"
+                                : "3px 3px 0 var(--ink)";
                         }}
                     >
                         {label}

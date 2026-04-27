@@ -22,7 +22,11 @@ export function ServerGrid({ servers, onCopy }: ServerGridProps) {
     }
 
     return (
-        <section aria-label="Server list" className="grid gap-5 pb-20" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(330px, 1fr))" }}>
+        <section
+            aria-label="Server list"
+            className="grid gap-5 pb-20"
+            style={{ gridTemplateColumns: "repeat(auto-fill, minmax(330px, 1fr))" }}
+        >
             {servers.map((server, i) => (
                 <ServerCard
                     key={server.ip}

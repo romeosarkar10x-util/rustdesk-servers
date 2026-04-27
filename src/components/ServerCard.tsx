@@ -5,7 +5,15 @@ import { STRIPE_COLORS } from "../data/servers";
 /* ── Icons ──────────────────────────────────────────────────────────────── */
 function IconCopy() {
     return (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-3.5 h-3.5">
+        <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="w-3.5 h-3.5"
+        >
             <rect x="9" y="9" width="13" height="13" rx="2" />
             <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
         </svg>
@@ -14,7 +22,15 @@ function IconCopy() {
 
 function IconCheck() {
     return (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-3.5 h-3.5">
+        <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="w-3.5 h-3.5"
+        >
             <polyline points="20 6 9 17 4 12" />
         </svg>
     );
@@ -22,7 +38,15 @@ function IconCheck() {
 
 function IconPin() {
     return (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-3.5 h-3.5 flex-shrink-0">
+        <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="w-3.5 h-3.5 flex-shrink-0"
+        >
             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
             <circle cx="12" cy="10" r="3" />
         </svg>
@@ -119,7 +143,10 @@ function FieldRow({ label, value, truncate = false, copyable = false, onCopy }: 
             <span className="font-hand text-base font-bold flex-shrink-0" style={{ color: "var(--ink-soft)" }}>
                 {label}
             </span>
-            <span className="font-mono text-xs font-bold flex items-center gap-1.5 min-w-0" style={{ color: "var(--ink)" }}>
+            <span
+                className="font-mono text-xs font-bold flex items-center gap-1.5 min-w-0"
+                style={{ color: "var(--ink)" }}
+            >
                 {truncate ? (
                     <span className="max-w-36 overflow-hidden text-ellipsis whitespace-nowrap" title={value}>
                         {value}
@@ -169,11 +196,19 @@ export function ServerCard({ server, index, colorIndex, onCopy }: ServerCardProp
                 <>
                     <div
                         className="absolute top-[-6px] left-[15px] w-20 h-6 z-10 pointer-events-none rounded-sm"
-                        style={{ background: "rgba(255,233,100,0.6)", border: "1px solid rgba(0,0,0,0.1)", transform: "rotate(-8deg)" }}
+                        style={{
+                            background: "rgba(255,233,100,0.6)",
+                            border: "1px solid rgba(0,0,0,0.1)",
+                            transform: "rotate(-8deg)",
+                        }}
                     />
                     <div
                         className="absolute top-[-6px] right-[15px] w-20 h-6 z-10 pointer-events-none rounded-sm"
-                        style={{ background: "rgba(255,233,100,0.6)", border: "1px solid rgba(0,0,0,0.1)", transform: "rotate(5deg)" }}
+                        style={{
+                            background: "rgba(255,233,100,0.6)",
+                            border: "1px solid rgba(0,0,0,0.1)",
+                            transform: "rotate(5deg)",
+                        }}
                     />
                 </>
             )}
@@ -189,7 +224,10 @@ export function ServerCard({ server, index, colorIndex, onCopy }: ServerCardProp
                         <div className="font-tag text-xl" style={{ color: "var(--ink)" }}>
                             {server.name}
                         </div>
-                        <div className="font-hand text-base mt-0.5 flex items-center gap-1" style={{ color: "var(--ink-soft)" }}>
+                        <div
+                            className="font-hand text-base mt-0.5 flex items-center gap-1"
+                            style={{ color: "var(--ink-soft)" }}
+                        >
                             <IconPin />
                             {server.location}
                         </div>
