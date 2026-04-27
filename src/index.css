@@ -1,1 +1,166 @@
 @import "tailwindcss";
+
+/* ── Declare layers (order defines cascade priority) ────────────────────── */
+@layer base, components, utilities;
+
+/* ── Keyframes live outside layers (they are not cascade-ordered) ────────── */
+@keyframes arrowDrip {
+    0%   { transform: translateY(0)    rotate(0deg);    opacity: 1;   }
+    20%  { transform: translateY(-10px) rotate(-12deg); opacity: 0.75; }
+    45%  { transform: translateY(7px)  rotate(8deg);   opacity: 1;   }
+    65%  { transform: translateY(-4px) rotate(-4deg);  opacity: 0.9; }
+    82%  { transform: translateY(2px)  rotate(2deg);   opacity: 1;   }
+    100% { transform: translateY(0)    rotate(0deg);   opacity: 1;   }
+}
+
+@keyframes cardDrop {
+    from {
+        opacity: 0;
+        transform: translateY(20px) rotate(1deg);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) rotate(0);
+    }
+}
+
+@keyframes toastIn {
+    from {
+        transform: translateX(-50%) translateY(80px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes toastOut {
+    from {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(-50%) translateY(80px);
+        opacity: 0;
+    }
+}
+
+/* ── Base ───────────────────────────────────────────────────────────────── */
+@layer base {
+    /* Graffiti design tokens */
+    :root {
+        --wall: #d4cfc4;
+        --wall-dark: #b8b3a6;
+        --wall-shadow: #9e998c;
+        --ink: #1a1a1a;
+        --ink-soft: #3a3a3a;
+        --pink: #ff2d7b;
+        --cyan: #00e5ff;
+        --yellow: #ffe926;
+        --lime: #76ff03;
+        --orange: #ff6d00;
+        --purple: #d500f9;
+        --red: #ff1744;
+        --card-bg: rgba(255, 255, 255, 0.55);
+        --font-tag: "Permanent Marker", cursive;
+        --font-hand: "Caveat", cursive;
+        --font-mono: "Space Mono", monospace;
+    }
+
+    *,
+    *::before,
+    *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: var(--font-mono);
+        background: var(--wall);
+        color: var(--ink);
+        min-height: 100vh;
+        overflow-x: hidden;
+        position: relative;
+    }
+
+    /* Brick / grid texture via pseudo-elements */
+    body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        background-image: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 48px,
+                var(--wall-dark) 48px,
+                var(--wall-dark) 50px
+            ),
+            repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 98px,
+                var(--wall-dark) 98px,
+                var(--wall-dark) 100px
+            );
+        opacity: 0.25;
+    }
+
+    body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        background-image: repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 48px,
+            var(--wall-dark) 48px,
+            var(--wall-dark) 50px
+        );
+        background-size: 100px 100px;
+        background-position: 50px 50px;
+        opacity: 0.12;
+    }
+}
+
+/* ── Utilities ──────────────────────────────────────────────────────────── */
+@layer utilities {
+    .font-tag {
+        font-family: var(--font-tag);
+    }
+
+    .font-hand {
+        font-family: var(--font-hand);
+    }
+
+    .font-mono {
+        font-family: var(--font-mono);
+    }
+
+    .animate-arrow-drip {
+        display: inline-block;
+        transform-origin: center bottom;
+        animation: arrowDrip 1.6s cubic-bezier(0.36, 0.07, 0.19, 0.97) infinite;
+    }
+
+    .card-animate {
+        animation: cardDrop 0.4s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+    }
+
+    .toast-show {
+        animation: toastIn 0.35s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+    }
+
+    .toast-hide {
+        animation: toastOut 0.35s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+    }
+}
