@@ -12,8 +12,8 @@
         "build": "vite build",
         "lint": "bunx --bun eslint .",
         "preview": "vite preview",
-        "format": "prettier --write \"**/*.{js,ts,tsx,json,md,html}\"",
-        "format:check": "prettier --check \"**/*.{js,ts,tsx,json,md,html}\"",
+        "format": "prettier --write \"**/*.{js,ts,tsx,json,md,yml,html}\"",
+        "format:check": "prettier --check \"**/*.{js,ts,tsx,json,md,yml,html}\"",
         "type-check": "tsc -b"
     },
     "dependencies": {
