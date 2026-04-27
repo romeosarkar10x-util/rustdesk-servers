@@ -1,5 +1,5 @@
 {
-    "name": "rustdesk_servers",
+    "name": "rustdesk-servers",
     "repository": {
         "type": "git",
         "url": "https://github.com/romeosarkar10x-util/rustdesk-servers"
