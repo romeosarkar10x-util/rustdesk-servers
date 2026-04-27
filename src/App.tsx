@@ -1,7 +1,7 @@
 import { useState, useCallback, useRef } from "react";
 import { SERVERS } from "./data/servers";
 import type { FilterValue } from "./components/FilterBar";
-import { GraffitiDrips, GraffitiSplatters, GraffitiStickers } from "./components/GraffitiBackground";
+import { GraffitiBackground } from "./components/GraffitiBackground";
 import { GitHubCorner } from "./components/GitHubCorner";
 import { Header } from "./components/Header";
 import { StatsStrip } from "./components/StatsStrip";
@@ -42,9 +42,7 @@ function App() {
     return (
         <>
             {/* ── Decorative background layer ── */}
-            <GraffitiDrips />
-            <GraffitiSplatters />
-            <GraffitiStickers />
+            <GraffitiBackground />
             <GitHubCorner />
 
             {/* ── Main content ── */}
