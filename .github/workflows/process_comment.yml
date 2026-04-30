@@ -6,6 +6,8 @@ on:
 
 jobs:
     process_comment:
+        permissions:
+            discussions: write
         runs-on: ubuntu-latest
         steps:
             - name: Process the comment
