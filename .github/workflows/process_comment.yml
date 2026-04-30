@@ -1,0 +1,15 @@
+name: Process discussion comment
+
+on:
+    discussion_comment:
+        types: [created]
+
+jobs:
+    process_comment:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Process the comment
+              run: |
+                  echo "Comment body: ${{ github.event.comment.body }}"
+                  echo "Author: ${{ github.event.comment.user.login }}"
+                  echo "Discussion title: ${{ github.event.discussion.title }}"
